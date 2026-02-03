@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NDMC Fellowship Program 2026-27</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .poster {
+            width: 100%;
+            max-width: 1000px;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+            padding: 60px 50px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            padding: 12px 30px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: slideInLeft 0.8s ease-out 0.2s backwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 56px;
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            animation: slideInLeft 0.8s ease-out 0.4s backwards;
+        }
+
+        .subheading {
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            margin-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out 0.6s backwards;
+        }
+
+        .duration {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 35px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            margin-top: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: slideInLeft 0.8s ease-out 0.8s backwards;
+        }
+
+        .duration::before {
+            content: '📅';
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .mission-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out 1s backwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .mission-box::before {
+            content: '💡';
+            position: absolute;
+            font-size: 120px;
+            right: 20px;
+            bottom: -20px;
+            opacity: 0.15;
+        }
+
+        .mission-box h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .mission-box p {
+            font-size: 18px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 45px;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            animation: slideUp 0.6s ease-out backwards;
+            animation-delay: calc(var(--i) * 0.1s);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .highlight-card:nth-child(1) { --i: 11; }
+        .highlight-card:nth-child(2) { --i: 12; }
+        .highlight-card:nth-child(3) { --i: 13; }
+        .highlight-card:nth-child(4) { --i: 14; }
+        .highlight-card:nth-child(5) { --i: 15; }
+
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .highlight-card .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .highlight-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .highlight-card p {
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            animation: fadeIn 1s ease-out backwards;
+            animation-delay: calc(var(--i) * 0.2s);
+        }
+
+        .section:nth-child(1) { --i: 16; }
+        .section:nth-child(2) { --i: 17; }
+
+        .section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 20px;
+            border-left: 5px solid #FF6B6B;
+            padding-left: 15px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .benefits-list {
+            list-style: none;
+        }
+
+        .benefits-list li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 16px;
+            color: #2d3748;
+            font-weight: 500;
+        }
+
+        .benefits-list li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out 3.6s backwards;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #FF6B6B;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .impact-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .subheading {
+                font-size: 18px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .content {
+                padding: 30px;
+            }
+
+            .header {
+                padding: 40px 30px 30px;
+            }
+
+            .impact-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="header">
+            <div class="badge">🎓 Semi-Government Initiative</div>
+            <h1>NDMC School<br>Fellowship</h1>
+            <div class="subheading">In Partnership with Serving Nicely Foundation</div>
+            <div class="duration">April 2026 - March 2027</div>
+        </div>
+
+        <div class="content">
+            <div class="mission-box">
+                <h2>Transform Lives. Transform Yourself.</h2>
+                <p>Make a meaningful impact while building your career. Mentor underprivileged 5th & 8th grade students, help them crack prestigious national exams, and develop critical professional skills guided by IIT & IIM alumni.</p>
+            </div>
+
+            <div class="highlights">
+                <div class="highlight-card">
+                    <span class="icon">👨‍🏫</span>
+                    <h3>One-on-One Mentoring</h3>
+                    <p>Dedicated mentor for each NDMC school serving slum communities</p>
+                </div>
+                <div class="highlight-card">
+                    <span class="icon">🎯</span>
+                    <h3>Mission-Driven</h3>
+                    <p>Help students from Sanjay Camp, Bapu Dham & other areas excel in competitive exams</p>
+                </div>
+                <div class="highlight-card">
+                    <span class="icon">📚</span>
+                    <h3>Free Coaching</h3>
+                    <p>Support students preparing for JNV, Sainik School, RMS, Olympiad & NTA exams</p>
+                </div>
+                <div class="highlight-card">
+                    <span class="icon">⏰</span>
+                    <h3>Flexible Schedule</h3>
+                    <p>Weekly school visits + support for daily online classes (8:15-9:15 PM)</p>
+                </div>
+                <div class="highlight-card">
+                    <span class="icon">🏆</span>
+                    <h3>Real Impact</h3>
+                    <p>Create a case study as students achieve selection in national-level exams</p>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div class="section">
+                    <h2>🚀 What You'll Gain</h2>
+                    <ul class="benefits-list">
+                        <li>Management & Leadership Skills</li>
+                        <li>Emotional Intelligence Development</li>
+                        <li>Critical Thinking & Problem Solving</li>
+                        <li>Networking with Bureaucrats, Founders & Industry Leaders</li>
+                        <li>Certificate from Semi-Government Body</li>
+                        <li>Mentorship by IIT & IIM Alumni</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h2>💻 Free Training Included</h2>
+                    <div style="margin-top: 20px;">
+                        <span class="skill-tag">AI Skilling</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                        <span class="skill-tag">Web Design</span>
+                        <span class="skill-tag">Social Media Marketing</span>
+                        <span class="skill-tag">Corporate Communication</span>
+                    </div>
+                    <p style="margin-top: 30px; font-size: 16px; color: #4a5568; font-weight: 500;">
+                        Perfect for aspiring <strong>bureaucrats, entrepreneurs, policy makers, social activists,</strong> and <strong>change makers!</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h2>Ready to Give Back & Grow?</h2>
+                <div class="impact-stats">
+                    <div class="stat">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Year Journey</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Students Impacted</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Lives Changed</span>
+                    </div>
+                </div>
+                <p>Limited spots available. Applications close soon!</p>
+                <a href="#apply" class="cta-button">Apply Now →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
